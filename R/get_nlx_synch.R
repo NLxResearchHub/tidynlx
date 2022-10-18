@@ -42,7 +42,7 @@ get_nlx_synch <- function(state_or_territory,
                                    'Content-Type' = 'application/json'),
                  query=params)
 
-  r_content <- jsonlite::fromJSON(httr::content(r, "text"))
+  r_content <- jsonlite::fromJSON(httr::content(r, as = "text", encoding = "UTF-8"))
 
   df <- tibble::as_tibble(r_content$data)
 

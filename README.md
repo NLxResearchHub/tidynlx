@@ -17,11 +17,13 @@ has recently completed a migration of its historical data warehouse to a
 new data warehouse that improves data processing, reliability, and
 availability.
 
-Data from the NLx Research Hub is provided through two APIs: \*
-Synchronous API: REST API for paging through data 50 records at a time.
-\* Asynchronous API: REST API for downloading large quantities of data
-from the NLx Research Hub (i.e. an entire month of jobs data from a
-single state or territory).
+Data from the NLx Research Hub is provided through two APIs:
+
+-   Synchronous API: REST API for paging through data 50 records at a
+    time.
+-   Asynchronous API: REST API for downloading large quantities of data
+    from the NLx Research Hub (i.e. an entire month of jobs data from a
+    single state or territory).
 
 ## Installation
 
@@ -48,8 +50,27 @@ out to <admin@nlxresearchhub.org>.To get started working with
 
 ``` r
 library(tidydol)
-library(tidyverse)
+
 nlx_api_key("YOUR API KEY GOES HERE", install=TRUE)
 ```
 
-## Example
+## Examples
+
+This is a basic example which shows you how to use the synchronous API:
+
+``` r
+## Returns 50 records of job postings data from Kentucky using the synchronous NLX API
+df <- get_nlx_synch(state_or_territory = 'ky', page = 1)
+
+head(df)
+```
+
+This is a basic example which shows you how to use the asynchronous API:
+
+``` r
+## Returns job posting records in Kentucky created between 2021-06-05 and 2021-06-10 (inclusive) using the 
+## asynchronous NLX API.
+df <- get_nlx(state_or_territory='KY', start_date = '2021-06-05', end_date ='2021-06-10')
+
+head(df)
+```
