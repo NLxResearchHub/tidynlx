@@ -12,4 +12,5 @@ LazyData: true
 Imports: 
     httr,
     jsonlite,
-    readr
+    readr,
+    tibble
