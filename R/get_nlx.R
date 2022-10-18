@@ -86,7 +86,7 @@ get_nlx <- function(state_or_territory,
 
   report_output_df <- readr::read_csv(report_status_json$data$resource$link)
 
-  return(report_output_df)
+  return(tibble::as_tibble(report_output_df))
 
 }
 
