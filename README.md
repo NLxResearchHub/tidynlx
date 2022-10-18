@@ -1,13 +1,13 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# tidynlx
+# tidynlx <img src='man/figures/hex-tidyNLx.png' align="right" height="138.5" />
 
 <!-- badges: start -->
 <!-- badges: end -->
 
-The goal of tidynlx is to allow users a simple way to interface with NLX
-API’s and return tidyverse-ready tibbles.
+tidynlx provides users with a simple way to interface with NLX’s APIs
+and return tidyverse-ready tibbles.
 
 ## NLx Research Hub Overview
 
@@ -19,11 +19,11 @@ availability.
 
 Data from the NLx Research Hub is provided through two APIs:
 
--   Synchronous API: REST API for paging through data 50 records at a
-    time.
--   Asynchronous API: REST API for downloading large quantities of data
-    from the NLx Research Hub (i.e. an entire month of jobs data from a
-    single state or territory).
+-   **Synchronous API**: REST API for paging through data 50 records at
+    a time.
+-   **Asynchronous API**: REST API for downloading large quantities of
+    data from the NLx Research Hub (i.e. an entire month of jobs data
+    from a single state or territory).
 
 ## Installation
 
