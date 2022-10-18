@@ -14,3 +14,4 @@ Imports:
     jsonlite,
     readr,
     tibble
+RoxygenNote: 7.2.1
