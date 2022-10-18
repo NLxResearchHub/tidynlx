@@ -1,5 +1,17 @@
-
-
+#' Synchronous NLX API Wrapper
+#'
+#' `get_nlx_synch()` accesses the synchronous NLX REST API for paging through data 50 records at a time.
+#'
+#' @param state_or_territory two digit state or territory code. This parameter is not case sensitive.
+#' @param page the page number of results to return.
+#'
+#' @return a tibble
+#' @export
+#'
+#' @examples
+#' get_nlx_synch(state_or_territory = 'ky', page = 1)
+#'
+#'
 
 get_nlx_synch <- function(state_or_territory,
                           page = 1) {
