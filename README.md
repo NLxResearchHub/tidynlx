@@ -9,7 +9,7 @@
 The goal of tidynlx is to allow users a simple way to interface with NLX
 API’s and return tidyverse-ready tibbles.
 
-# NLx Research Hub Overview
+## NLx Research Hub Overview
 
 The NLx Research Hub API provides access to job posting data provided by
 the National Labor Exchange in partnership with DirectEmployers. The NLx
@@ -39,7 +39,7 @@ private repo refer to
 <https://remotes.r-lib.org/reference/install_github.html> and
 <https://usethis.r-lib.org/articles/git-credentials.html>
 
-##Getting Started
+## Getting Started
 
 Before getting started, you will need to receive an API key. If you have
 not received an API key but expect to have received one, please reach
@@ -53,29 +53,3 @@ nlx_api_key("YOUR API KEY GOES HERE", install=TRUE)
 ```
 
 ## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-``` r
-library(tidynlx)
-
-
-## Returns 50 records of job postings data from Kentucky using the synchronous NLX API
-df <- get_nlx_synch(state_or_territory = 'ky', page = 1)
-#> No encoding supplied: defaulting to UTF-8.
-
-
-## Returns records of Ohio job postings created betweeen the dates of 2021-06-05 and 2021-06-10 (inclusive). Query leverages the asynchronous NLX API
-df <- get_nlx(state_or_territory='OH', start_date = '2021-06-05', end_date = '2021-06-10')
-#> Warning: One or more parsing issues, see `problems()` for details
-#> Rows: 10865 Columns: 51
-#> ── Column specification ────────────────────────────────────────────────────────
-#> Delimiter: ","
-#> chr  (18): file_name, file_id, fein, title, description, link, city, state, ...
-#> dbl   (5): system_job_id, job_id, expired, zipcode, application_zipcode
-#> lgl  (23): source_state, fedcontractor, parameters_positions_max, parameters...
-#> dttm  (5): expired_date, date_compiled, created_date, last_updated_date, dat...
-#> 
-#> ℹ Use `spec()` to retrieve the full column specification for this data.
-#> ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.
-```
