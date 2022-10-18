@@ -49,7 +49,7 @@ out to <admin@nlxresearchhub.org>.To get started working with
 **tidynlx**, users should load the package and set their DOL API key.
 
 ``` r
-library(tidydol)
+library(tidynlx)
 
 nlx_api_key("YOUR API KEY GOES HERE", install=TRUE)
 ```

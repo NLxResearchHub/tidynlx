@@ -45,7 +45,7 @@ Note: You must be a collaborator on this project and generate a Personal Access 
 Before getting started, you will need to receive an API key. If you have not received an API key but expect to have received one, please reach out to <admin@nlxresearchhub.org>.To get started working with __tidynlx__, users should load the package and set their DOL API key.
 
 ```{r, include=FALSE}
-devtools::load_all(".")
+devtools::load_all(".") 
 ```
 
 ```{r, eval = FALSE}
