@@ -82,6 +82,7 @@ get_nlx <- function(state_or_territory,
     # Start date of the results (inclusive)
     start = start_date,
     end = end_date,
+    date_column = date_column,
     format = 'csv'
   )
 
