@@ -54,6 +54,30 @@ get_nlx <- function(state_or_territory,
 
 
 
+#' Request Report From NLX Asynchronous API
+#'
+#' `nlx_report_request()` Requests a report from the NLX asynchronous API and
+#' returns the url of the requested report.
+#'
+#' @param state_or_territory Two digit state or territory code. This parameter
+#'   is not case sensitive.
+#' @param start_date The start date for the creation_date of job postings
+#'   returned by the query (inclusive).
+#' @param end_date The end date for the creation_date of job postings returned
+#'   by the query (inclusive). If no end_date is included the query defaults to
+#'   one full day beginning on the start_date.Please note that you cannot
+#'   request more than 35 days of data at a time Dates are midnight to midnight,
+#'   so 2021-06-01 to 2021-06-02 is one day of data, for 2021-06-01
+#' @param date_column The date field that start_date and end_date filter by
+#'   Options are created_date, date_compiled, last_updated_date, or
+#'   date_acquired. Defaults to created_date.
+#'
+#' @return string containing the url of the requested report
+#' @export
+#'
+#' @examples request_url <- nlx_report_request(state_or_territory='OH',
+#' start_date = '2021-06-05', end_date = '2021-06-10')
+#'
 nlx_report_request <- function(state_or_territory,
                         start_date,
                         end_date = NULL,
@@ -126,6 +150,20 @@ nlx_report_request <- function(state_or_territory,
 
 
 
+#' Downloads Data From Requested Report URL
+#'
+#' `nlx_download_report()` checks the status of a requested report, and when complete, downloads the requested data into a tibble
+#'
+#' @param report_status_url URL of the requested report as a string.
+#' @param sleep_time The amount of time in seconds between queries to the NLX
+#'   API. Avoids rate limitations. Defaults to two seconds.
+#' @param silently Provides updates on status on the progress of the report
+#'   between queries if true. Defaults to `FALSE`
+#'
+#' @return a tibble
+#' @export
+#'
+#' @examples df <- nlx_download_report('')
 nlx_download_report <- function(report_status_url,
                                 sleep_time = 2,
                                 silently = TRUE) {
@@ -172,8 +210,6 @@ nlx_download_report <- function(report_status_url,
   if(!silently) {
     print('Report is done. Downloading...')
   }
-
-  Sys.sleep(sleep_time)
 
   report_output_df <- readr::read_csv(report_status_json$data$resource$link)
 
