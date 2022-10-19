@@ -29,8 +29,11 @@
 get_nlx <- function(state_or_territory,
                     start_date,
                     end_date = NULL,
+                    date_column = 'created_date',
                     sleep_time = 2,
                     silently= TRUE) {
+
+  ## Error handling
 
   # Checks to see if the user has supplied an NLX API key to the nlx_api_key function
   if (Sys.getenv('NLX_API_KEY') != '') {
@@ -46,6 +49,12 @@ get_nlx <- function(state_or_territory,
     stop('You must enter a valid two letter state or territory abbreviation')
   }
 
+  #Error if invalid date_column selection
+  if (!(date_column %in% c('created_date', 'date_compiled', 'last_updated_date', 'date_acquired'))) {
+    stop('Not a valid date_column choice. Please input either created_date, date_compiled, last_updated_date, or date_acquired')
+  }
+
+  # If no end date is provided the function defaults to returning one day's worth of data
   if (is.null(end_date)) {
     end_date = as.Date(start_date) +1
   }
@@ -55,6 +64,18 @@ get_nlx <- function(state_or_territory,
     stop('You cannot request more than 35 days of data at a time. \n  Dates are midnight to midnight, so 2021-06-01 to 2021-06-02 is one day of data')
   }
 
+  #Throw error if user does not select end date that is greater than start date
+  if (!(end_date>start_date)) {
+    stop('End date must be strictly greater than start date')
+  }
+
+  #Throw error if user does not select end date that is greater than start date
+  if (end_date>=Sys.Date()) {
+    stop("end_date must occur before today's date")
+  }
+
+
+  ## Query logic
   query_params = list(
     #Use an upper-case two digit code for the state or territory you intend to query
     state_or_territory = toupper(state_or_territory),
