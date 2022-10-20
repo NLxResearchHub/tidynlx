@@ -31,7 +31,7 @@
 #'
 #' @export
 #'
-NLX_api_key <- function(key, overwrite = FALSE, install = FALSE){
+nlx_api_key <- function(key, overwrite = FALSE, install = FALSE){
 
   if (install) {
     home <- Sys.getenv("HOME")
