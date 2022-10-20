@@ -212,12 +212,7 @@ nlx_download_report <- function(report_status_url,
   }
 
   report_output_df <- readr::read_csv(report_status_json$data$resource$link,
-                                      col_types = readr::cols(.default = "c",
-                                                              expired_date = "T",
-                                                              date_compiled = "T",
-                                                              created_date = "T",
-                                                              last_updated_date = "T",
-                                                              date_acquired = "T"))
+                                      col_types = readr::cols(.default = "c"))
 
   return(tibble::as_tibble(report_output_df))
 }
