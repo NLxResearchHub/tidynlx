@@ -46,7 +46,7 @@ private repo refer to
 Before getting started, you will need to receive an API key. If you have
 not received an API key but expect to have received one, please reach
 out to <admin@nlxresearchhub.org>.To get started working with
-**tidynlx**, users should load the package and set their DOL API key.
+**tidynlx**, users should load the package and set their NLX API key.
 
 ``` r
 library(tidynlx)
