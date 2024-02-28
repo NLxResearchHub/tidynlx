@@ -32,7 +32,7 @@ You can install the development version of tidynlx from
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ebottatlabor/tidynlx")
+devtools::install_github("NLxResearchHub/tidynlx")
 ```
 
 Note: You must be a collaborator on this project and generate a Personal
