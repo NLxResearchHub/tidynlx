@@ -36,7 +36,7 @@ You can install the development version of tidynlx from [GitHub](https://github.
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("ebottatlabor/tidynlx")
+devtools::install_github("NLxResearchHub/tidynlx")
 ```
 Note: You must be a collaborator on this project and generate a Personal Access Token (PAT). For more information on how to download from a private repo refer to https://remotes.r-lib.org/reference/install_github.html and https://usethis.r-lib.org/articles/git-credentials.html
 
